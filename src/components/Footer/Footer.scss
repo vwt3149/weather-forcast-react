@@ -1,0 +1,33 @@
+.Footer {
+    background-color: #6b8596;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    &__container {
+        width: 300px;
+        color: #e6e6e7;
+    }
+
+    & h4 {
+        margin-bottom: .5rem;
+
+        border-bottom: 1px solid;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-flow: column;
+    }
+
+    &__listItem {
+        margin: .2rem 0;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}

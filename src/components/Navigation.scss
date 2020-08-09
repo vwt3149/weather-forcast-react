@@ -1,0 +1,59 @@
+@import '../style/colors';
+
+.Nav {
+  background-color: #2d98da;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    color: $color-white-1;
+  }
+
+  &__control {
+    position: relative;
+  }
+
+  &__label {
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+    transition: all 0.2s ease-out;
+  }
+
+  &__input {
+    text-transform: capitalize;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-white-1;
+    color: $color-white-1;
+    padding-bottom: 5px;
+  }
+
+  &__input::placeholder {
+    color: $color-white-1;
+    padding-left: 5px;
+  }
+
+  &__form input:focus+.Nav__label,
+  &__form input:valid+.Nav__label {
+    // font-size: 0.7rem;
+    transform: translateX(-55px);
+  }
+
+  &__search,
+  &__cancel {
+    position: absolute;
+    width: 0.9rem;
+  }
+
+  &__search {
+    right: 0;
+  }
+
+  &__cancel {
+    right: 15%;
+  }
+}

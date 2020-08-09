@@ -1,0 +1,16 @@
+.DailyChart {
+    // height: 300px !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: 2rem 0;
+
+    & h2 {
+        border-bottom: 1px solid #fff;
+        margin-bottom: 3rem;
+    }
+
+    &__container {
+        max-width: 800px !important;
+        margin: 0 auto;
+    }
+}

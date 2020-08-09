@@ -1,0 +1,56 @@
+.Hourly {
+    position: relative;
+    background-color: rgba(42, 165, 11, 0);
+
+    // overflow: hidden;
+    & .d {
+        position: absolute;
+        top: 234px;
+        width: 100%;
+    }
+
+    &__container {
+        cursor: default;
+        position: relative;
+        // padding: 1rem 1.5rem;
+        background-color: rgba(201, 89, 89, 0);
+        min-width: 150px;
+        margin: 0 15px;
+
+        & img {
+            height: 2rem;
+        }
+    }
+
+    &__summary {
+        height: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: .8rem;
+        text-transform: capitalize;
+    }
+
+    &__rain,
+    &__windSpeed {
+        font-size: .8rem;
+
+        & img {
+            height: .8rem;
+            padding: 0 1rem 0 0px;
+        }
+    }
+
+    &__temp {
+        position: relative;
+        font-size: 1.7rem;
+    }
+
+    &__time {
+        margin-top: 1rem;
+        // margin-bottom: 1rem;
+    }
+
+    &__degree {
+        width: 8px;
+    }
+
+}

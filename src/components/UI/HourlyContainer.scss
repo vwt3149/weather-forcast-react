@@ -1,0 +1,22 @@
+.HourlyContainer {
+    position: relative;
+    padding: 1.2rem 1rem;
+    background-color: rgba(168, 25, 25, 0);
+    width: 120%;
+    margin: 0 15px;
+    height: 3rem;
+
+    &>* {
+        margin-bottom: .6rem;
+    }
+
+    // &__span {
+    //     margin: 0;
+    //     height: 1px;
+    //     width: 130%;
+    //     background-color: #fff;
+    //     position: absolute;
+    //     left: 0;
+    //     bottom: 52px;
+    // }
+}

@@ -1,0 +1,57 @@
+.WeatherSlider {
+
+    position: relative;
+
+    &__wrapper {
+        overflow-x: scroll;
+        padding: 2rem 0;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            // cursor: pointer;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.541);
+
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+
+        }
+    }
+
+    &__container {
+        display: flex !important;
+        flex-flow: row;
+        // margin: 0 auto;
+
+    }
+
+    &__arrowRight,
+    &__arrowLeft {
+        & img {
+            height: 2rem;
+        }
+
+        position: absolute;
+        bottom: 45%;
+        cursor: pointer;
+    }
+
+    &__arrowLeft {
+        left: -2.5rem;
+    }
+
+    &__arrowRight {
+        right: -2.5rem;
+    }
+
+}
+
+.Weather-slider,
+.Daily-slider {
+
+    transition: transform .3s;
+}
