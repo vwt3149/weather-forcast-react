@@ -1,8 +1,14 @@
+@import '../../../style//mixin';
+
 .DayDetail {
   background-color: rgba(148, 78, 189, 0);
   width: 300px;
   margin: 0 auto 1.5rem auto;
   border-top: 1px solid white;
+
+  @include for-size(phone) {
+    width: 200px;
+  }
 
   & img {
     height: 2rem;
@@ -47,12 +53,46 @@
   &__chart {
     flex-wrap: wrap;
 
+    @include for-size(phone) {
+      justify-content: space-between;
+
+    }
+
+
+
     &Wrapper {
+      position: relative;
       flex-flow: column;
       margin-left: 1rem;
+
+      @include for-size(phone) {
+        flex-flow: row;
+        margin-left: 0;
+        width: 30%;
+
+        & h3 {
+          font-size: .9rem;
+          transform: rotate(-180deg);
+          background-color: #198ee2;
+          border-radius: 2px;
+          padding: 3px;
+          writing-mode: vertical-rl;
+          height: 6rem;
+          width: 2rem;
+          text-align: center;
+        }
+
+      }
+
     }
 
     &Container {
+      width: 100px;
+
+      @include for-size(phone) {
+        width: 50px;
+      }
+
       position: relative;
 
       & span {
@@ -63,6 +103,11 @@
         right: 0;
         text-align: center;
         bottom: 30%;
+
+        @include for-size(phone) {
+          bottom: 25%;
+          font-size: 1.1rem;
+        }
       }
     }
   }

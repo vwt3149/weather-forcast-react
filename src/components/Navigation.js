@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
+
 import './Navigation.scss';
+
 const Navigation = ({ onSearchHandler }) => {
   const searchInput = useRef('');
   const [hasValue, setHasValue] = useState('');
+
   const onSubmitHandler = (event) => {
-    console.log(event);
     event.preventDefault();
     onSearchHandler(searchInput.current.value);
     searchInput.current.blur();
@@ -36,12 +38,9 @@ const Navigation = ({ onSearchHandler }) => {
           <label htmlFor={'search'} className='Nav__label'>
             Search
           </label>
-          <img
-            onClick={onSubmitHandler}
-            src='../../assets/icons/input/search.svg'
-            alt='search'
-            className='Nav__search'
-          />
+          <button type='submit' className='Nav__search'>
+            <img src='../../assets/icons/input/search.svg' alt='search' />
+          </button>
           {hasValue && (
             <img
               onClick={onCancelHandler}

@@ -1,8 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import { motion, AnimateSharedLayout } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './DailyContainer.scss';
-import { onTapContainer, onHoverContainer } from '../../framerMotion/variants';
 
 const DailyContainer = ({
   date,
@@ -30,26 +29,19 @@ const DailyContainer = ({
         <img src={`../../assets/icons/weather/svg/${icon}.svg`} alt={icon} />
       </div>
       <div className='DailyContainer__temp'>
-        <span>
+        <div className='DailyContainer__temp-max'>
           {tempMax}
-          <img
-            className='DailyContainer__degree-max'
-            src='../../assets/icons/weather/degree.svg'
-            alt='degree'
-          />
-        </span>
-
-        {tempMin}
-        <img
-          className='DailyContainer__degree-min'
-          src='../../assets/icons/weather/degree.svg'
-          alt='degree'
-        />
+          <img src='../../assets/icons/weather/degree.svg' alt='degree' />
+        </div>
+        <div className='DailyContainer__temp-min'>
+          {tempMin}
+          <img src='../../assets/icons/weather/degree.svg' alt='degree' />
+        </div>
       </div>
       <div className='DailyContainer__summary'>{summaryIcon}</div>
       {selected === id && (
         <motion.div
-          className='bottomBorder'
+          className='DailyContainer__bottom-border'
           layoutId='bottomBorder'
           initial={false}
           animate={{ borderBottom: '2px solid #fff' }}

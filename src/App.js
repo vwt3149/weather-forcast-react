@@ -11,7 +11,7 @@ import Current from './components/Current/Current';
 import Daily from './components/Daily/Daily';
 import Hourly from './components/Hourly/Hourly';
 import DayDetails from './components/DayDetails/DayDetails';
-import Spinner from './components/UI/Spinner/Spinner';
+import { SpinnerApp } from './components/UI/Spinner/Spinner';
 import DailyChart from './components/Daily/DailyChart/DailyChart';
 import Footer from './components/Footer/Footer';
 
@@ -19,6 +19,7 @@ import './App.scss';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingHourly, setIsLoadingHourly] = useState(false);
   const [error, setError] = useState(false);
   const [search, setSearch] = useState(null);
 
@@ -44,7 +45,6 @@ const App = () => {
         searchCity = search;
         setSearchStorage(search);
       }
-      console.log(searchCity);
       const {
         lat,
         lng,
@@ -76,7 +76,6 @@ const App = () => {
 
   useEffect(() => {
     forwardGeocoding();
-    console.log(weather);
   }, [search]);
 
   const onSearchHandler = (inputData) => {
@@ -103,17 +102,17 @@ const App = () => {
         >
           <Current current={weather.current} />
           <Daily
-            isLoading={setIsLoading}
+            isLoading={setIsLoadingHourly}
             daily={weather.daily}
             coordinates={weather.coordinates}
             onClickItem={onDailyItemClicked}
           />
-          <Hourly hourly={weather.hourly} />
+          <Hourly hourly={weather.hourly} loading={isLoadingHourly} />
           <DailyChart daily={weather.daily} />
           <DayDetails details={weather.daily.data[0]} alerts={weather.alerts} />
         </motion.div>
       ) : (
-        <Spinner />
+        <SpinnerApp />
       )}
 
       <Footer />

@@ -14,17 +14,17 @@ const DailyChart = ({ daily }) => {
       days: [],
     };
 
-    daily.data.map((day) => {
+    daily.data.forEach((day) => {
       const tempMax = Math.round(day.temperatureHigh);
       const tempMin = Math.round(day.temperatureLow);
-      const daysString = moment(day.time * 1000).format('ddd Do');
+      const daysString = moment(day.time * 1000).format('ddd');
 
       data.maxTemp.push(tempMax);
       data.minTemp.push(tempMin);
       data.days.push(daysString);
     });
     setState(lineChart(data));
-  }, []);
+  }, [daily]);
   return (
     <div className='DailyChart'>
       <h2>{daily.data.length} Day Weather</h2>

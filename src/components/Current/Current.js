@@ -18,34 +18,29 @@ const Current = ({ current }) => {
             current.city || current.village || current.town || current.state
           }, ${current.country}`}
         </div>
-
-        {/* <div className='Current__country'></div> */}
       </div>
       <div className='Current__data'>
-        {/* <div className='Current__icon'>
-         
-        </div> */}
-        <div className='Current__temp'>
-          <motion.img
-            className='Current__icon'
-            drag
-            dragConstraints={{
-              left: -motionDrag,
-              right: motionDrag,
-              top: -motionDrag,
-              bottom: motionDrag,
-            }}
-            src={`../../assets/icons/weather/svg/${current.icon}.svg`}
-            alt={`${current.icon}`}
-          />
-          {temp} <span>C</span>
-          <img
-            className='Current__degree'
-            src='../../assets/icons/weather/degree.svg'
-            alt='degree'
-          />
+        <div className='Current__info'>
+          <div className='Current__icon'>
+            <motion.img
+              drag
+              dragConstraints={{
+                left: -motionDrag,
+                right: motionDrag,
+                top: -motionDrag,
+                bottom: motionDrag,
+              }}
+              src={`../../assets/icons/weather/svg/${current.icon}.svg`}
+              alt={`${current.icon}`}
+            />
+          </div>
+
+          <div className='Current__temp'>
+            {temp}
+            <img src='../../assets/icons/weather/degree.svg' alt='degree' />
+          </div>
+          <div className='Current__celsius'>C</div>
         </div>
-        {/* <div className='Current__tempType'></div> */}
       </div>
       <div className='Current__textDesc'>{summaryIcon}</div>
       <div className='Current__otherInfo'>
@@ -56,7 +51,6 @@ const Current = ({ current }) => {
       </div>
     </motion.main>
   );
-  // return <h1>da</h1>;
 };
 
 export default Current;

@@ -1,14 +1,21 @@
+@import '../../style/mixin';
+
 .WeatherSlider {
 
     position: relative;
 
     &__wrapper {
+        position: relative;
         overflow-x: scroll;
+        overflow-y: hidden;
         padding: 2rem 0;
 
         &::-webkit-scrollbar {
             background-color: transparent;
-            // cursor: pointer;
+
+            @include for-size(phone) {
+                display: none;
+            }
         }
 
         &::-webkit-scrollbar-thumb {

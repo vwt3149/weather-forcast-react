@@ -1,21 +1,57 @@
 @import '../style/colors';
+@import '../style/mixin';
 
 .Nav {
+
   background-color: #2d98da;
   padding: 1rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 
+  @include for-size(phone-small) {
+    justify-content: space-around;
+  }
+
+
   h1 {
     color: $color-white-1;
+
+    @include for-size(phone-small) {
+      margin-bottom: 2rem;
+    }
   }
+
+  @include for-size(phone-small) {
+    &__form {
+      margin-bottom: 1rem;
+    }
+  }
+
+  input {
+    text-transform: capitalize;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-white-1;
+    color: $color-white-1;
+  }
+
+  button {
+    outline: none;
+    background: none;
+    border: none;
+  }
+
+
 
   &__control {
     position: relative;
   }
 
   &__label {
+
     font-size: 1rem;
     position: absolute;
     left: 0;
@@ -23,12 +59,6 @@
   }
 
   &__input {
-    text-transform: capitalize;
-    outline: none;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid $color-white-1;
-    color: $color-white-1;
     padding-bottom: 5px;
   }
 
@@ -39,8 +69,13 @@
 
   &__form input:focus+.Nav__label,
   &__form input:valid+.Nav__label {
-    // font-size: 0.7rem;
     transform: translateX(-55px);
+  }
+
+  @include for-size(phone) {
+    &__form input:focus+.Nav__label {
+      display: none;
+    }
   }
 
   &__search,
@@ -55,5 +90,11 @@
 
   &__cancel {
     right: 15%;
+  }
+
+  &__mobile-form {
+    position: absolute;
+    width: calc(100% - 2rem);
+    background-color: #ddd;
   }
 }

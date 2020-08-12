@@ -1,0 +1,91 @@
+@import '../../../style/mixin';
+
+.DailyContainer {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    padding: 20px;
+    min-width: 120px;
+    margin: 0 15px;
+
+    @include for-size(phone) {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin: 0;
+        min-width: 70px;
+        padding: 0;
+    }
+
+    &>* {
+        margin-bottom: .6rem;
+    }
+
+    &__heading {
+        font-weight: 300;
+    }
+
+    &__icon img {
+        width: 2rem;
+    }
+
+    &__summary {
+        @include for-size(phone) {
+            display: none;
+        }
+
+        font-size: .80rem;
+        font-weight: 300;
+        text-transform: capitalize;
+    }
+
+
+
+    &__temp {
+        display: flex;
+        align-items: baseline;
+
+        @include for-size(phone) {
+            flex-flow: column;
+            align-items: center;
+        }
+
+        &-max {
+            position: relative;
+            font-size: 1.7rem;
+            color: #fff;
+            margin-right: 20px;
+
+            @include for-size(phone) {
+                margin-right: 0;
+            }
+
+
+            & img {
+                position: absolute;
+                width: .5rem;
+                left: 2.1rem;
+            }
+        }
+
+        &-min {
+            position: relative;
+
+            & img {
+                position: absolute;
+                width: .4rem;
+                left: 1.4rem;
+            }
+        }
+
+        color: rgb(201, 225, 231);
+    }
+
+    &__bottom-border {
+        @include for-size(phone) {
+            align-self: normal;
+        }
+
+
+    }
+}

@@ -1,19 +1,27 @@
 import React from 'react';
-
-import { motion } from 'framer-motion';
-import { spinnerVariant } from '../../../framerMotion/variants';
 import GridLoader from 'react-spinners/GridLoader';
-
+import { useMediaQuery } from 'react-responsive';
 import './Spinner.scss';
 
-const Spinner = () => {
+const SpinnerApp = () => {
   return (
-    <div className='Spinner'>
+    <div className='Spinner Spinner__main'>
       <div>
         <GridLoader size={30} color={'#bdc3c7'} />
       </div>
     </div>
   );
 };
+const SpinnerHourly = () => {
+  const isPhone = useMediaQuery({ query: '(max-width: 599px)' });
 
-export default Spinner;
+  return (
+    <div className='Spinner Spinner__hourly'>
+      <div>
+        <GridLoader size={isPhone ? 10 : 30} color={'#bdc3c7'} />
+      </div>
+    </div>
+  );
+};
+
+export { SpinnerApp, SpinnerHourly };

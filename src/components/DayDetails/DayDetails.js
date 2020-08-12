@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { Doughnut } from 'react-chartjs-2';
 import { doughnutChart } from '../../charts/charts';
+import { useMediaQuery } from 'react-responsive';
 
 import './DayDetails.scss';
 import DayDetail from './DayDetail/DayDetail';
 
 const DayDetails = ({ details, alerts }) => {
+  const isPhone = useMediaQuery({ query: '(max-width: 599px)' });
+  const chartPhoneSize = 50;
+  const chartDesktopSize = 50;
+
   const [chartHumidity, setChartHumidity] = useState({});
   const [chartUV, setChartUV] = useState({});
   const [chartPrecipitation, setChartPrecipitation] = useState({});
@@ -21,7 +26,7 @@ const DayDetails = ({ details, alerts }) => {
     setChartHumidity(humidity);
     setChartPrecipitation(precipitation);
     setChartUV(uv);
-  }, []);
+  }, [details]);
 
   return (
     <div className='DayDetails'>
@@ -105,57 +110,47 @@ const DayDetails = ({ details, alerts }) => {
         <DayDetail>
           <div className='DayDetail__chart'>
             <div className='DayDetail__chartWrapper'>
-              <h3>Humidity</h3>
+              <h3 id='Humidity'>Humidity</h3>
               <div className='DayDetail__chartContainer'>
                 <Doughnut
+                  id='dought'
                   data={chartHumidity.data}
                   options={chartHumidity.options}
                   legend={chartHumidity.legend}
-                  width={100}
-                  height={100}
+                  width={isPhone ? chartPhoneSize : chartDesktopSize}
+                  height={isPhone ? chartPhoneSize : chartDesktopSize}
                 />
                 <span>{chartHumidity.percentage}%</span>
               </div>
             </div>
             <div className='DayDetail__chartWrapper'>
-              <h3>Precipitation</h3>
+              <h3 id='Precipitation'>Precipitation</h3>
               <div className='DayDetail__chartContainer'>
                 <Doughnut
+                  id='dought'
                   data={chartPrecipitation.data}
                   options={chartPrecipitation.options}
                   legend={chartPrecipitation.legend}
-                  width={100}
-                  height={100}
+                  width={isPhone ? chartPhoneSize : chartDesktopSize}
+                  height={isPhone ? chartPhoneSize : chartDesktopSize}
                 />
                 <span>{chartPrecipitation.percentage}%</span>
               </div>
             </div>
             <div className='DayDetail__chartWrapper'>
-              <h3>UV index</h3>
+              <h3 id='UV'>UV</h3>
               <div className='DayDetail__chartContainer'>
                 <Doughnut
+                  id='dought'
                   data={chartUV.data}
                   options={chartUV.options}
                   legend={chartUV.legend}
-                  width={100}
-                  height={100}
+                  width={isPhone ? chartPhoneSize : chartDesktopSize}
+                  height={isPhone ? chartPhoneSize : chartDesktopSize}
                 />
                 <span>{chartUV.percentage}</span>
               </div>
             </div>
-            {/* <div className='DayDetail__chartWrapper'>
-              <h3>Humidity</h3>
-              <div className='DayDetail__chartContainer'>
-                <Doughnut
-                  data={chartData.data}
-                  options={chartData.options}
-                  legend={{ display: false, rtl: false }}
-                  width={100}
-                  height={100}
-                />
-                <span>80%</span>
-              </div>
-            </div> */}
           </div>
         </DayDetail>
       </div>

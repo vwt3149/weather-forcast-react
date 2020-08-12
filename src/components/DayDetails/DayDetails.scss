@@ -1,8 +1,9 @@
-.DayDetails{
-    &__wrapper{
-        display: flex;
-       margin-top: 2rem;
-        // justify-content: space-between;
-        flex-wrap: wrap;
-    }
+@import '../../style/mixin';
+
+.DayDetails {
+  &__wrapper {
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 2rem;
+  }
 }

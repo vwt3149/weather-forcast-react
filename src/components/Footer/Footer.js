@@ -31,7 +31,7 @@ const Footer = () => {
             </a>
           </li>
           <li className='Footer__listItem'>
-            <a href='#'>FaceBook</a>
+            <a href='https://www.facebook.com/'>FaceBook</a>
           </li>
         </ul>
       </div>

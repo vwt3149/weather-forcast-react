@@ -1,7 +1,5 @@
 @import '../../style/mixin';
 
-
-
 .Current {
     padding: 2rem 0;
     width: 50vw;
@@ -10,7 +8,6 @@
     &>div {
         margin: 0 auto 1rem auto;
         display: flex;
-        // margin-bottom: 1rem;
     }
 
     &__location {
@@ -23,58 +20,36 @@
         display: flex !important;
         justify-content: center;
         flex-wrap: wrap;
-
-        // & div {
-        //     // min-width: 50px;
-        //     width: 100px;
-        // }
-
-        // display: grid !important;
-        // grid-template-columns: 1fr 1fr 1fr;
-        // align-items: center;
-        // text-align: center;
-
     }
 
-    // &__icon {
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: 90px;
+    &__info {
+        font-size: 5rem;
+        display: flex;
 
-    //     & img {
 
-    //         width: 6rem;
-    //     }
-    // }
+        &>div {
+
+            justify-content: center;
+            width: 6rem
+        }
+    }
 
     &__temp {
-        position: relative;
-        font-size: 5rem;
+        display: flex;
 
-
-
-        & span {
-            position: absolute;
-            font-size: 1.5rem;
-            bottom: 60px;
-            left: 140px;
+        & img {
+            align-self: baseline;
+            width: 1rem;
         }
-
     }
 
-    &__degree {
-        position: absolute;
-        bottom: 70px;
-        right: -20px;
-        width: 20px;
-        // bottom: 70px;
-        // font-size: 25px;
+    &__celsius {
+        align-self: center;
+        font-size: 1.5rem;
+        text-align: center;
     }
 
-    &__icon {
-        position: absolute;
-        bottom: 18px;
-        left: -120px;
+    &__icon img {
         width: 4rem;
     }
 

@@ -2,24 +2,25 @@ import React, { useState } from 'react';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import { containerVariant } from '../../framerMotion/variants';
 
-import DailyContainer from '../UI/DailyContainer';
-import WeatherSlider from '../UI/WeatherSlider';
+import DailyContainer from './DailyComponent/DailyContainer';
+import WeatherSlider from '../WeatherSlider/WeatherSlider';
 import { getWeatherDaily } from '../../services/weather';
 
 import './Daily.scss';
 
-const Daily = ({ daily, coordinates, onClickItem }) => {
+const Daily = ({ daily, coordinates, onClickItem, isLoading }) => {
   const [selected, setSelected] = useState(daily.data[0].time);
 
   const onClickedItem = async (timestamp) => {
     setSelected(timestamp);
     const { lat, lng } = coordinates;
     try {
+      isLoading(true);
       const res = await getWeatherDaily(lat, lng, timestamp);
       onClickItem(res);
-      console.log('>> GET WEATHER BY DAY << ', res);
+      isLoading(false);
     } catch (error) {
-      console.log('>> GET WEATHER BY DAY << error', error);
+      isLoading(false);
     }
   };
   return (
