@@ -7,10 +7,10 @@ export const getWeather = async (lat, lng) => {
     const res = await axios.get(
       `${proxy}/${ENDPOINT}/${process.env.REACT_APP_DARK_SKY_API}/${lat},${lng}?units=si`
     );
-    console.log(res, '>>>> WEATHER DATA <<<');
+    // console.log(res, '>>>> WEATHER DATA <<<');
     return res;
   } catch (error) {
-    console.log(error, '>>>> WEATHER DATA <<<');
+    // console.log(error, '>>>> WEATHER DATA <<<');
     throw error;
   }
 };
@@ -20,10 +20,10 @@ export const getWeatherDaily = async (lat, lng, timestamp) => {
     const res = await axios.get(
       `${proxy}/${ENDPOINT}/${process.env.REACT_APP_DARK_SKY_API}/${lat},${lng},${timestamp}?units=si&?exclude=currently,minutely,flags`
     );
-    console.log(res, '>>>> WEATHER DATA DAILY<<<');
+    // console.log(res, '>>>> WEATHER DATA DAILY<<<');
     return res;
   } catch (error) {
-    console.log(error, '>>>> WEATHER DATA DAILY <<<');
+    // console.log(error, '>>>> WEATHER DATA DAILY <<<');
     throw error;
   }
 };

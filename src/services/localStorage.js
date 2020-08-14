@@ -5,7 +5,3 @@ export const setSearchStorage = (search) => {
 export const getSearchStorage = () => {
   return localStorage.getItem('search');
 };
-
-// export const deleteSearchStorage = () =>{
-//     localStorage.clear()
-// }
