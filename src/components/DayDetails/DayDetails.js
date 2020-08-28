@@ -3,7 +3,6 @@ import moment from 'moment';
 import { Doughnut } from 'react-chartjs-2';
 import { doughnutChart } from '../../charts/charts';
 import { useMediaQuery } from 'react-responsive';
-
 import './DayDetails.scss';
 import DayDetail from './DayDetail/DayDetail';
 
@@ -15,7 +14,6 @@ const DayDetails = ({ details, alerts }) => {
   const [chartHumidity, setChartHumidity] = useState({});
   const [chartUV, setChartUV] = useState({});
   const [chartPrecipitation, setChartPrecipitation] = useState({});
-
   const weatherAlert = alerts && alerts[0];
 
   useEffect(() => {
@@ -26,7 +24,7 @@ const DayDetails = ({ details, alerts }) => {
     setChartHumidity(humidity);
     setChartPrecipitation(precipitation);
     setChartUV(uv);
-  }, [details]);
+  }, []);
 
   return (
     <div className='DayDetails'>
@@ -35,7 +33,7 @@ const DayDetails = ({ details, alerts }) => {
         <DayDetail>
           <h3>Summary</h3>
           <div>
-            <p>{details.summary}</p>
+            <p>{details.summary}</p>{' '}
           </div>
         </DayDetail>
         <DayDetail>
@@ -46,7 +44,8 @@ const DayDetails = ({ details, alerts }) => {
               alt='sunrise'
             />
             <p className='DayDetail__time'>
-              {moment(details.sunriseTime * 1000).format('LT')}
+              {' '}
+              {moment(details.sunriseTime * 1000).format('LT')}{' '}
             </p>
           </div>
           <h3>Sun Set</h3>
@@ -55,9 +54,9 @@ const DayDetails = ({ details, alerts }) => {
               src='../../../assets/icons/weather/svg/sunset.svg'
               alt='sunset'
             />
-
             <p className='DayDetail__time'>
-              {moment(details.sunsetTime * 1000).format('LT')}
+              {' '}
+              {moment(details.sunsetTime * 1000).format('LT')}{' '}
             </p>
           </div>
         </DayDetail>

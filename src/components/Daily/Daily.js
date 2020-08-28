@@ -8,19 +8,19 @@ import { getWeatherDaily } from '../../services/weather';
 
 import './Daily.scss';
 
-const Daily = ({ daily, coordinates, onClickItem, isLoading }) => {
+const Daily = ({ daily, coordinates, onClickItem, setIsLoadingHourly }) => {
   const [selected, setSelected] = useState(daily.data[0].time);
 
   const onClickedItem = async (timestamp) => {
     setSelected(timestamp);
     const { lat, lng } = coordinates;
     try {
-      isLoading(true);
+      setIsLoadingHourly(true);
       const res = await getWeatherDaily(lat, lng, timestamp);
       onClickItem(res);
-      isLoading(false);
+      setIsLoadingHourly(false);
     } catch (error) {
-      isLoading(false);
+      setIsLoadingHourly(false);
     }
   };
   return (

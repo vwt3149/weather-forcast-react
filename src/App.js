@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { parentVariant } from './framerMotion/variants';
 
 import { setSearchStorage, getSearchStorage } from './services/localStorage';
-import { getLocationCoordinates, getLocationByIp } from './services/location';
+import { getCoordinatesOpenCage, getLocationIpInfo } from './services/location';
 import { getWeather } from './services/weather';
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import Current from './components/Current/Current';
 import Daily from './components/Daily/Daily';
 import Hourly from './components/Hourly/Hourly';
@@ -40,7 +40,7 @@ const App = () => {
         const storage = getSearchStorage();
         storage
           ? (searchCity = storage)
-          : (searchCity = await getLocationByIp());
+          : (searchCity = await getLocationIpInfo());
       } else {
         searchCity = search;
         setSearchStorage(search);
@@ -53,7 +53,7 @@ const App = () => {
         village,
         town,
         state,
-      } = await getLocationCoordinates(searchCity);
+      } = await getCoordinatesOpenCage(searchCity);
 
       const weather = await getWeather(lat, lng);
       const { currently, daily, hourly, alerts } = weather.data;
@@ -102,7 +102,7 @@ const App = () => {
         >
           <Current current={weather.current} />
           <Daily
-            isLoading={setIsLoadingHourly}
+            setIsLoadingHourly={setIsLoadingHourly}
             daily={weather.daily}
             coordinates={weather.coordinates}
             onClickItem={onDailyItemClicked}

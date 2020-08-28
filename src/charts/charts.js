@@ -1,6 +1,5 @@
 export const doughnutChart = (type, data) => {
-  let chartData = [80, 20];
-  // data = data.toFixed();
+  let chartData = [];
   if (type === 'uv') {
     chartData = [data, 10 - data];
   } else {

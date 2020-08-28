@@ -10,6 +10,7 @@ const Current = ({ current }) => {
   const temp = Math.round(current.temperature);
   const windSpeed = Math.round(current.windSpeed);
   const humidity = (current.humidity * 100).toFixed(0);
+
   return (
     <motion.main variants={containerVariant} className='Current'>
       <div className='Current__location'>

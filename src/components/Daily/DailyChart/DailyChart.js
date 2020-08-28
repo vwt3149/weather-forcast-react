@@ -6,7 +6,7 @@ import { lineChart } from '../../../charts/charts';
 
 import './DailyChart.scss';
 const DailyChart = ({ daily }) => {
-  const [state, setState] = useState({});
+  const [state, setState] = useState(null);
   useEffect(() => {
     const data = {
       maxTemp: [],
@@ -24,17 +24,14 @@ const DailyChart = ({ daily }) => {
       data.days.push(daysString);
     });
     setState(lineChart(data));
-  }, [daily]);
+  }, []);
+
   return (
     <div className='DailyChart'>
       <h2>{daily.data.length} Day Weather</h2>
       {state && (
         <div className='DailyChart__container'>
-          <Line
-            data={state.data}
-            options={state.options}
-            legend={state.legend}
-          />
+          <Line data={state.data} options={state.options} />
         </div>
       )}
     </div>
